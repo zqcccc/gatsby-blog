@@ -1,7 +1,7 @@
 ---
 title: 正则
 date: "2020-11-01T22:12:03.284Z"
-description: "Hello World123"
+description: "Hello World"
 ---
 
 有一道题是这样的，将给定的数字转化成千分位的格式，如把“10000”转化为“10,000”
