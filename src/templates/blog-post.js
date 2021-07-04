@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { formatPostDate, formatReadingTime } from '../utils/helpers';
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -23,7 +24,11 @@ const BlogPostTemplate = ({ data, location }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          {/* <p>{post.frontmatter.date}</p> */}
+          <small>
+            {formatPostDate(post.frontmatter.date, 'zh-Hans')}
+            {` • ${formatReadingTime(post.timeToRead)}`}
+          </small>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -81,6 +86,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

@@ -58,7 +58,6 @@
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
-  --color-heading-black: black;
   --color-accent: #d1dce5;
 }
 
@@ -120,7 +119,7 @@ h6 {
 h1 {
   font-weight: var(--fontWeight-black);
   font-size: var(--fontSize-6);
-  color: var(--color-heading-black);
+  color: var(--color-heading);
 }
 
 h2 {
@@ -252,6 +251,9 @@ a:focus {
 
 .global-header {
   margin-bottom: var(--spacing-12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main-heading {
@@ -300,6 +302,10 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
+}
+
+.blog-post header {
+  margin-bottom: var(--spacing-4);
 }
 
 .blog-post header h1 {

@@ -3,12 +3,12 @@ module.exports = {
     title: `ZQC's Blog`,
     author: {
       name: `zqc`,
-      summary: `who lives and works in Beijing building useful things.`,
+      summary: `who lives and works in Beijing building useless things.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://zqcsblog.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `zqqqc`,
     },
   },
   plugins: [
@@ -113,7 +113,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `ZQC's Blog`,
-        short_name: `GatsbyJS`,
+        short_name: `zqc`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
