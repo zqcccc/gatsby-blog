@@ -222,8 +222,13 @@ table {
   border-spacing: 0.25rem;
 }
 
-table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
+table thead tr th,table tr td {
+  border: 1px solid var(--color-accent);
+  padding: 6px 13px;
+  display: table-cell;
+  vertical-align: inherit;
+  /* font-weight: bold; */
+  text-align: center;
 }
 
 /* Link */
