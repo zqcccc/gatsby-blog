@@ -134,10 +134,10 @@ console.log(reg2.test('<div>abcd</div>')) // true
 
 ```javascript
 // 贪婪匹配
-/<script>.*<\/\1>/g.exec('<script>abcd</script><script>efgh</script>') // 匹配整段
+/<(script)>.*<\/\1>/g.exec('<script>abcd</><script>efgh</script>') // 匹配整段
 
 // 惰性匹配
-/<script>.*?<\/script>/g.exec('<script>abcd</script><script>efgh</script>') // 匹配第一小段
+/<(script)>.*?<\/script>/g.exec('<script>abcd</><script>efgh</script>') // 匹配第一小段
 ```
 
 
