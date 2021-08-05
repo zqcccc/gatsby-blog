@@ -8,8 +8,6 @@ import "./src/style.css"
 
 import './src/global.css'
 
-import 'katex/dist/katex.min.css'
-
 // Highlighting for code blocks
 // import "prismjs/themes/prism-twilight.css"
 
