@@ -1,0 +1,22 @@
+.menuList {
+  color: var(--textNormal);
+  padding: 8px 0;
+  margin-bottom: 40px;
+  li {
+    padding-left: 16px;
+    list-style: none;
+  }
+  a {
+    position: relative;
+    display: block;
+    padding-right: 24px;
+    color: #454d64;
+    line-height: 2.4;
+    text-decoration: none;
+    outline: none;
+    transition: color 0.3s, background 0.3s;
+    &.active {
+      background: linear-gradient(270deg, #e8ecf4, rgba(232, 236, 244, 0));
+    }
+  }
+}

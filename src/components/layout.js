@@ -2,21 +2,27 @@ import * as React from "react"
 import Helmet from "react-helmet"
 import { Link } from "gatsby"
 import Toggle from "./Toggle"
+// import initWebgl from "./webgl"
+import Drawer from "./drawer"
+import Menu from './menu'
 
-import sun from '../images/sun.png'
-import moon from '../images/moon.png'
+import sun from "../images/sun.png"
+import moon from "../images/moon.png"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  // const can = React.useRef(null)
 
   const [theme, setTheme] = React.useState(null)
+  const [showDrawer, setShowDrawer] = React.useState(false)
 
   React.useEffect(() => {
-    setTheme(window.__theme )
+    setTheme(window.__theme)
     window.__onThemeChange = () => {
-      setTheme(window.__theme )
+      setTheme(window.__theme)
     }
+    // if (can.current) initWebgl(can.current)
   }, [])
   let header
 
@@ -45,6 +51,9 @@ const Layout = ({ location, title, children }) => {
         minHeight: "100vh",
       }}
     >
+      <Drawer visible={showDrawer} onClick={() => setShowDrawer(v => !v)}>
+        <Menu />
+      </Drawer>
       <Helmet
         meta={[
           {

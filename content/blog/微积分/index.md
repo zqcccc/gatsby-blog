@@ -1,6 +1,6 @@
 ---
 title: 微积分
-date: "2020-8-05"
+date: "2020-08-05"
 description: "测试一下 latex"
 ---
 
