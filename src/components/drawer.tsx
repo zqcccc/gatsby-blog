@@ -52,7 +52,8 @@ const Drawer = props => {
     onClick,
     placement = "left",
   } = props
-  return ReactDOM.createPortal(
+  
+  return typeof window !== 'undefined' ? ReactDOM.createPortal(
     <div
       className={`drawer drawer-wrapper drawer-${placement} ${
         visible ? "drawer-open" : ""
@@ -76,7 +77,7 @@ const Drawer = props => {
       </div>
     </div>,
     document.body
-  )
+  ) : null
 }
 
 export default Drawer
