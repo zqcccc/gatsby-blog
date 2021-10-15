@@ -1,4 +1,9 @@
-# whistle
+---
+title: whistle
+date: "2021-10-15"
+description: "记录一下安装和使用 whistle 的小技巧"
+---
+
 
 ## 前言
 
@@ -55,7 +60,7 @@ alias sw="w2 start -p 8899 --socksPort 8900" #开启whistle服务
 
 ios 的代理软件特别多，但是因为特殊原因只能在非国区商店里下载到靠谱的代理软件，这里以小火箭为例
 
-![shadowrocket配置](./shadowrocket_w2.jpeg)
+<img src="./shadowrocket_w2.jpeg" alt="shadowrocket配置" style="zoom: 25%;" />
 
 几乎所有的这些软件配置都是大差不差的
 
