@@ -30,7 +30,7 @@
   --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Source Han Sans CN", "PingFang SC", "Microsoft Yahei", "Merriweather", "Georgia", Cambria, "Times New Roman",
+  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Source Han Sans CN", "PingFang SC", "Microsoft Yahei", "Times New Roman",
     Times, serif;
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-sans);
