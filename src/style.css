@@ -343,3 +343,7 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+.gatsby-resp-image-wrapper {
+  margin-bottom: var(--spacing-6);
+}

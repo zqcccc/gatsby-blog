@@ -1,7 +1,7 @@
 ---
 title: 微积分
 date: "2020-08-05"
-description: "测试一下 latex"
+description: "测试一下数学公式插件显示"
 ---
 
 ## 常用数学符号

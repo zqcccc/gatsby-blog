@@ -1,13 +1,15 @@
 ---
 title: whistle
 date: "2021-10-15"
-description: "记录一下安装和使用 whistle 的小技巧"
+description: "记录一下 whistle 安装和使用的一些小技巧"
 ---
 
 
 ## 前言
 
-在试过了 charles，spy-debugger，fiddler 等一系列的抓包工具后，各有各的一些小痒点不能解决，导致每次抓包都是抗拒的，直到用了 whistle 后，功能强大的同时上手也比较简单。
+在试过了 charles，spy-debugger 等一系列的抓包工具后，各有各的一些小痒点不能解决，比如 charles 更像个抓包 gui，大多数配置都是靠点选，在一些较为复杂的情况下并不灵活，spy-debugger 功能较单薄，直到用了 whistle 后，功能强大的同时上手也比较简单。
+
+还有每次连接抓包服务的时候，繁琐地修改代理导致每次抓包都是抗拒的，这里也会用一些软件来做到一键连接代理。
 
 [whistle官网安装教程](https://wproxy.org/whistle/install.html)
 
