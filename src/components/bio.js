@@ -47,9 +47,12 @@ const Bio = () => {
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
           You could follow him on{` `}
-          <a href="https://web.okjike.com/u/e0610645-a193-460f-acfd-855de78128c1">
-            Jike
+          <a href={`https://github.com/${social?.github || ``}`}>
+            Github
           </a>
+          {/* <a href="https://web.okjike.com/u/e0610645-a193-460f-acfd-855de78128c1">
+            Jike
+          </a> */}
           {` `}or{` `}
           <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a>
         </p>

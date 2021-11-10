@@ -14,11 +14,11 @@ export default () => {
       </li>
       <li>
         <p>awesome collections</p>
-        <li>
-          <Link to="https://paveldogreat.github.io/WebGL-Fluid-Simulation/">
+        <p className={cn.sub}>
+          <Link target="_blank" to="https://paveldogreat.github.io/WebGL-Fluid-Simulation/">
             WebGL Fluid
           </Link>
-        </li>
+        </p>
       </li>
     </ul>
   )
