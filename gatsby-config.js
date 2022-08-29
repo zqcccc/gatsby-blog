@@ -5,7 +5,7 @@ module.exports = {
       name: `zqc`,
       summary: `who lives and works in Beijing building useless things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `welcome to ZQC's personal blog, nice to meet you`,
     siteUrl: `https://zqcsblog.gatsbyjs.io/`,
     social: {
       twitter: `zqqqc`,
