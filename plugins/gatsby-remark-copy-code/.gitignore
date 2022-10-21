@@ -1,0 +1,12 @@
+# *.css
+# *.js
+!src/*
+node_modules/
+logs
+*.log
+package-lock.json
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+.DS_Store

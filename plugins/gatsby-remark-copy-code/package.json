@@ -1,0 +1,41 @@
+{
+  "name": "gatsby-remark-copy-code",
+  "version": "1.0.0",
+  "description": "Add copy buttons to code snippets",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "npm run sass && npm run babel",
+    "sass": "node-sass src/styles.scss ./styles.css",
+    "babel": "babel src --out-dir .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zqcccc/gatsby-remark-copy-code.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-remark-plugin",
+    "gatsby-transformer-remark",
+    "buttons",
+    "markdown"
+  ],
+  "author": "c9cu <c9cu@qq.com> (https://github.com/zqcccc)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zqcccc/gatsby-remark-copy-code/issues"
+  },
+  "homepage": "https://github.com/zqcccc/gatsby-remark-copy-code#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "node-sass": "^7.0.3"
+  },
+  "dependencies": {
+    "query-string": "^7.1.1",
+    "unist-util-visit": "^2.0.3"
+  }
+}
