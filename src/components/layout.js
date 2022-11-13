@@ -14,7 +14,6 @@ import moon from '../images/moon.png'
 const reducer = (state, action) => {
   switch (action.type) {
     case 'changeTheme': {
-      console.log('action: ', action)
       return {
         ...state,
         theme: action.payload,
@@ -42,7 +41,7 @@ const Layout = ({ location, title, children }) => {
     window.__onThemeChange = () => {
       setTheme(window.__theme)
       dispatch({ type: 'changeTheme', payload: window.__theme })
-      window.CUSDIS.setTheme(window.__theme)
+      // window.CUSDIS?.setTheme(window.__theme)
     }
     // if (can.current) initWebgl(can.current)
   }, [])

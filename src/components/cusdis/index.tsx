@@ -1,22 +1,24 @@
 import * as React from 'react'
+import { useScript } from '../../hooks/useScript'
 
 export function ReactCusdis(props: {
   attrs: {
-    host: string,
-    appId: string,
-    pageId: string,
-    pageTitle?: string,
-    pageUrl?: string,
-    theme?: 'light' | 'dark' | 'auto',
-  },
-  lang?: string,
+    host: string
+    appId: string
+    pageId: string
+    pageTitle?: string
+    pageUrl?: string
+    theme?: 'light' | 'dark' | 'auto'
+  }
+  lang?: string
   style?: React.CSSProperties
 }) {
-
   const divRef = React.useRef<HTMLDivElement>(null)
 
   const host = props.attrs.host || 'https://cusdis.com'
 
+  useScript(props.lang ? `${host}/js/widget/lang/${props.lang}.js` : '')
+  useScript(`/cusdis.es.js`)
   React.useLayoutEffect(() => {
     // @ts-expect-error
     const render = window.renderCusdis
@@ -30,7 +32,7 @@ export function ReactCusdis(props: {
     props.attrs.pageId,
     props.attrs.pageTitle,
     props.attrs.pageUrl,
-    props.lang
+    props.lang,
   ])
 
   return (
@@ -45,9 +47,7 @@ export function ReactCusdis(props: {
         data-theme={props.attrs.theme}
         style={props.style}
         ref={divRef}
-      >
-
-      </div>
+      ></div>
     </>
   )
 }

@@ -87,8 +87,6 @@ const BlogPostTemplate = ({ data, location }) => {
       <footer>
         <Bio />
       </footer>
-      <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js" />
-      <script defer src="/cusdis.es.js" />
     </Layout>
   )
 }
