@@ -1,28 +1,26 @@
-import * as React from "react"
-import ReactDOM from "react-dom"
+import * as React from 'react'
+import ReactDOM from 'react-dom'
 
-import { get, valuesIn } from "lodash"
-
-import "./drawer.less"
+import './drawer.less'
 
 const getContentStyle = ({
   visible,
-  placement = "left",
+  placement = 'left',
   width = 256,
   height = 256,
-  duration = ".3s",
-  ease = "cubic-bezier(0.78, 0.14, 0.15, 0.86)",
+  duration = '.3s',
+  ease = 'cubic-bezier(0.78, 0.14, 0.15, 0.86)',
 }) => {
   const styles: any = {
     transition: `transform ${duration} ${ease}`,
   }
-  if (placement === "left" || placement === "right") {
+  if (placement === 'left' || placement === 'right') {
     styles.transform = `translateX(${
-      placement === "left" && visible ? "0" : "-100%"
+      placement === 'left' && visible ? '0' : '-100%'
     })`
     styles.width = width
   }
-  if (placement === "top" || placement === "bottom") {
+  if (placement === 'top' || placement === 'bottom') {
     // styles.transform = `translateY(${placement === 'top' ? 'height' : -height}px)`
     // styles.height = height
   }
@@ -31,32 +29,32 @@ const getContentStyle = ({
 const getMaskStyle = ({ visible, maskStyle = {} }) => {
   return Object.assign(
     {
-      height: visible ? "100%" : undefined,
+      height: visible ? '100%' : undefined,
     },
     maskStyle
   )
 }
 const getDrawStyle = ({ visible }) => {
   return {
-    width: visible ? "100%" : undefined,
+    width: visible ? '100%' : undefined,
   }
 }
 const Drawer = props => {
   const {
     visible = false,
     showMask = true,
-    prefixCls = "drawer",
+    prefixCls = 'drawer',
     maskClosable = true,
-    onClose = _ => _,
+    onClose = (_: any) => _,
     children,
     onClick,
-    placement = "left",
+    placement = 'left',
   } = props
-  
-  return typeof window !== 'undefined' ? ReactDOM.createPortal(
+
+  return ReactDOM.createPortal(
     <div
       className={`drawer drawer-wrapper drawer-${placement} ${
-        visible ? "drawer-open" : ""
+        visible ? 'drawer-open' : ''
       }`}
       style={getDrawStyle({ visible })}
     >
@@ -68,16 +66,14 @@ const Drawer = props => {
         />
       )}
       <div className="drawer-content-wrapper" style={getContentStyle(props)}>
-        <div className={`drawer-content`}>
-          {children}
-        </div>
+        <div className={`drawer-content`}>{children}</div>
         <div className="drawer-handler" onClick={onClick}>
           <i className="drawer-handle-icon"></i>
         </div>
       </div>
     </div>,
     document.body
-  ) : null
+  )
 }
 
 export default Drawer

@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
-import * as cn from "./index.module.less"
+import * as cn from './index.module.less'
 
 export default () => {
   return (
@@ -15,9 +15,12 @@ export default () => {
       <li>
         <p>awesome collections</p>
         <p className={cn.sub}>
-          <Link target="_blank" to="https://paveldogreat.github.io/WebGL-Fluid-Simulation/">
+          <a
+            target="_blank"
+            href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/"
+          >
             WebGL Fluid
-          </Link>
+          </a>
         </p>
       </li>
     </ul>

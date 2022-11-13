@@ -1,15 +1,19 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-import { formatPostDate, formatReadingTime } from '../utils/helpers';
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import React, { useContext } from 'react'
+import { Link, graphql } from 'gatsby'
+import { formatPostDate, formatReadingTime } from '../utils/helpers'
+import { ReactCusdis } from 'react-cusdis'
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import { useIsUseBrowser } from '../hooks/isInBrowser'
+import { GlobalContext } from '../core/context'
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+
+  const isInBrowser = useIsUseBrowser()
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -35,9 +39,6 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
       <nav className="blog-post-nav">
         <ul
@@ -65,6 +66,28 @@ const BlogPostTemplate = ({ data, location }) => {
           </li>
         </ul>
       </nav>
+
+      {isInBrowser && (
+        <GlobalContext.Consumer>
+          {({ state }) => (
+            <ReactCusdis
+              attrs={{
+                host: 'https://cusdis.com',
+                appId: '05e78cdc-13fc-404f-bab7-a4cc8e62a388',
+                pageId: `${location.hostname}_${location.pathname}`,
+                pageTitle: document.title,
+                pageUrl: location.href,
+                theme: state?.theme ?? window.__theme,
+              }}
+              lang="zh-cn"
+            />
+          )}
+        </GlobalContext.Consumer>
+      )}
+      <footer>
+        <Bio />
+      </footer>
+      <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js" />
     </Layout>
   )
 }

@@ -45,10 +45,15 @@ export default class Toggle extends PureComponent {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, state) {
     if ('checked' in nextProps) {
-      this.setState({ checked: !!nextProps.checked });
-      this.previouslyChecked = !!nextProps.checked;
+      // this.setState({ checked: !!nextProps.checked });
+      // this.previouslyChecked = !!nextProps.checked;
+      return {
+        checked: !!nextProps.checked
+      }
+    } else {
+      return null
     }
   }
 
