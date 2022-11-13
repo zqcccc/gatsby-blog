@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Link, graphql } from 'gatsby'
 import { formatPostDate, formatReadingTime } from '../utils/helpers'
-import { ReactCusdis } from 'react-cusdis'
+import { ReactCusdis } from '../components/cusdis'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
@@ -88,6 +88,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <Bio />
       </footer>
       <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js" />
+      <script defer src="/cusdis.es.js" />
     </Layout>
   )
 }
