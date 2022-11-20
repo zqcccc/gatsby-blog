@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect, useReducer } from 'react'
-import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import Toggle from './Toggle'
 // import initWebgl from "./webgl"
@@ -80,14 +79,17 @@ const Layout = ({ location, title, children }) => {
             <Menu />
           </Drawer>
         )}
-        <Helmet
+        {/* <Header>
+          <meta name="theme-color" content="#ffa8c5" />
+        </Header> */}
+        {/* <Helmet
           meta={[
             {
               name: 'theme-color',
               content: theme === 'light' ? '#ffa8c5' : '#282c35',
             },
           ]}
-        />
+        /> */}
         <header className="global-header">
           {header}
           {theme !== null ? (

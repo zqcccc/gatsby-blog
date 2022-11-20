@@ -93,6 +93,8 @@ const BlogPostTemplate = ({ data, location }) => {
 
 export default BlogPostTemplate
 
+export const Head = () => <meta name="theme-color" content="#ffa8c5" />
+
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!

@@ -1,10 +1,10 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-import { formatReadingTime } from "../utils/helpers"
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
+import { formatReadingTime } from '../utils/helpers'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -69,6 +69,8 @@ const BlogIndex = ({ data, location }) => {
 
 export default BlogIndex
 
+export const Head = () => <meta name="theme-color" content="#ffa8c5" />
+
 export const pageQuery = graphql`
   query {
     site {
@@ -76,7 +78,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       nodes {
         excerpt
         fields {

@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: `https://zqcsblog.gatsbyjs.io/`,
     social: {
       twitter: `zqqqc`,
-      github: "zqcccc",
+      github: 'zqcccc',
     },
   },
   plugins: [
@@ -92,14 +92,14 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
+                  custom_elements: [{ 'content:encoded': node.html }],
                 })
               })
             },
             query: `
               {
                 allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: {frontmatter: {date: DESC}},
                 ) {
                   nodes {
                     excerpt
@@ -115,7 +115,7 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
+            output: '/rss.xml',
           },
         ],
       },
