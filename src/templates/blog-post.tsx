@@ -98,6 +98,7 @@ export default BlogPostTemplate
 
 export const Head = ({ data }: any) => {
   const post = data.mdx
+  console.log('post: ', post)
   return (
     <>
       <Seo
@@ -126,6 +127,7 @@ export const pageQuery = graphql`
           minutes
         }
       }
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
