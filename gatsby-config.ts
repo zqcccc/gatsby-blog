@@ -105,9 +105,9 @@ const config: GatsbyConfig = {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  url: encodeURI(site.siteMetadata.siteUrl + node.fields.slug),
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ 'content:encoded': node.html }],
+                  custom_elements: [{ 'content:raw': node.body }],
                 })
               })
             },
@@ -117,8 +117,8 @@ const config: GatsbyConfig = {
                   sort: {frontmatter: {date: DESC}},
                 ) {
                   nodes {
+                    body
                     excerpt
-                    html
                     fields {
                       slug
                     }
