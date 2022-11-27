@@ -328,6 +328,7 @@ a:focus {
 }
 
 .gatsby-highlight {
+  position: relative;
   margin-bottom: var(--spacing-8);
 }
 

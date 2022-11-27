@@ -1,0 +1,41 @@
+.gatsby-remark-prismjs-copy-button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 3px 5px 2px;
+  border-radius: 3px;
+  transition: background-color 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.88);
+  background-color: transparent;
+}
+@media (max-width: 600px) {
+  .gatsby-remark-prismjs-copy-button {
+    background: rgb(255, 167, 196);
+  }
+}
+.gatsby-remark-prismjs-copy-button:hover {
+  background: rgb(255, 167, 196);
+}
+.gatsby-remark-prismjs-copy-button.copied {
+  cursor: default;
+  animation: opacity-hide-show 1.6s;
+}
+
+@keyframes opacity-hide-show {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

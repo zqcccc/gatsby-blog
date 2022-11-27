@@ -44,7 +44,6 @@ const config: GatsbyConfig = {
           remarkPlugins: [remarkGfm],
         },
         gatsbyRemarkPlugins: [
-          `gatsby-remark-copy-code`,
           {
             resolve: `gatsby-remark-katex`,
             options: {

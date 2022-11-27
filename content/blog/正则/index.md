@@ -6,7 +6,7 @@ description: 'Hello World, first post~'
 
 有一道题是这样的，将给定的数字转化成千分位的格式，如把“10000”转化为“10,000”
 
-```javascript
+```javascript{22}
 // js逻辑写法
 function transform(num) {
   num = (num + '').split('')
@@ -28,7 +28,7 @@ function transform(num) {
 function transform(num) {
   num = num + ''
 
-  return num.replace(/(?=(?!\b)(\d{3})+$)/g, ',') // highlight-line
+  return num.replace(/(?=(?!\b)(\d{3})+$)/g, ',')
 }
 ```
 
