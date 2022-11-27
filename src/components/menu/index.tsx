@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import * as cn from './index.module.less'
+import * as cn from './index.module.css'
 
 export default () => {
   return (

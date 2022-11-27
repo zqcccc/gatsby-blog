@@ -7,9 +7,18 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { useIsUseBrowser } from '../hooks/isInBrowser'
 import { GlobalContext } from '../core/context'
+import CodeBlock from '../components/CodeBlock'
+import { MDXProvider } from '@mdx-js/react'
 
-const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+const components = {
+  pre: CodeBlock,
+  code: ({ children }: any) => (
+    <code className="language-inline-code">{children}</code>
+  ),
+}
+
+const BlogPostTemplate = ({ data, location, children }: any) => {
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
@@ -17,10 +26,6 @@ const BlogPostTemplate = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
       <article
         className="blog-post"
         itemScope
@@ -31,13 +36,11 @@ const BlogPostTemplate = ({ data, location }) => {
           {/* <p>{post.frontmatter.date}</p> */}
           <small>
             {formatPostDate(post.frontmatter.date, 'zh-Hans')}
-            {` • ${formatReadingTime(post.timeToRead)}`}
+            {` • ${formatReadingTime(post.fields.timeToRead.minutes)}`}
           </small>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        {/* <section itemProp="articleBody">{children}</section> */}
+        <MDXProvider components={components}>{children}</MDXProvider>
         <hr />
       </article>
       <nav className="blog-post-nav">
@@ -53,7 +56,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                {previous.frontmatter.title}
               </Link>
             )}
           </li>
@@ -69,7 +72,7 @@ const BlogPostTemplate = ({ data, location }) => {
 
       {isInBrowser && (
         <GlobalContext.Consumer>
-          {({ state }) => (
+          {({ state }: any) => (
             <ReactCusdis
               attrs={{
                 host: 'https://cusdis.com',
@@ -93,7 +96,17 @@ const BlogPostTemplate = ({ data, location }) => {
 
 export default BlogPostTemplate
 
-export const Head = () => <meta name="theme-color" content="#ffa8c5" />
+export const Head = ({ data }: any) => {
+  const post = data.mdx
+  return (
+    <>
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      />
+    </>
+  )
+}
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -106,18 +119,20 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
-      excerpt(pruneLength: 160)
-      html
-      timeToRead
+      fields {
+        timeToRead {
+          minutes
+        }
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -125,7 +140,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }

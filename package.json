@@ -1,13 +1,14 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "gatsby-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "zqc's blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "c9cu <c9cu@qq.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@mdx-js/react": "^2.1.5",
     "gatsby": "^5.0.0",
     "gatsby-plugin-feed": "^5",
     "gatsby-plugin-gatsby-cloud": "^5",
@@ -15,24 +16,25 @@
     "gatsby-plugin-image": "^3",
     "gatsby-plugin-less": "^7",
     "gatsby-plugin-manifest": "^5",
+    "gatsby-plugin-mdx": "^5.2.0",
     "gatsby-plugin-offline": "^6",
     "gatsby-plugin-react-helmet": "^6",
     "gatsby-plugin-sharp": "^5",
     "gatsby-remark-copy-linked-files": "^6",
     "gatsby-remark-images": "^7",
     "gatsby-remark-katex": "^7",
-    "gatsby-remark-prismjs": "^7",
     "gatsby-remark-responsive-iframe": "^6",
     "gatsby-remark-smartypants": "^6",
     "gatsby-source-filesystem": "^5",
-    "gatsby-transformer-remark": "^6",
     "gatsby-transformer-sharp": "^5",
     "katex": "^0.13.13",
     "lodash": "^4.17.21",
-    "prismjs": "^1.23.0",
+    "prism-react-renderer": "^1.3.5",
     "react": "^18",
     "react-dom": "^18",
     "react-helmet": "^6.1.0",
+    "reading-time": "^1.5.0",
+    "remark-gfm": "^1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },
@@ -40,6 +42,7 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "@types/react-helmet": "^6.1.5",
     "prettier": "^2.2.1",
     "typescript": "^4.8.4"
   },
@@ -48,7 +51,6 @@
     "gatsby"
   ],
   "license": "0BSD",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
@@ -56,6 +58,7 @@
   "scripts": {
     "start": "gatsby develop",
     "dev": "gatsby develop",
+    "debug": "gatsby develop --verbose --inspect-brk",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",

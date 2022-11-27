@@ -1,4 +1,11 @@
-module.exports = {
+import type { GatsbyConfig } from 'gatsby'
+import remarkGfm from 'remark-gfm'
+
+const config: GatsbyConfig = {
+  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
+  // If you use VSCode you can also use the GraphQL plugin
+  // Learn more at: https://gatsby.dev/graphql-typegen
+  // graphqlTypegen: true,
   siteMetadata: {
     title: `ZQC's Blog`,
     author: {
@@ -30,9 +37,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
+        gatsbyRemarkPlugins: [
           `gatsby-remark-copy-code`,
           {
             resolve: `gatsby-remark-katex`,
@@ -53,7 +64,11 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          // {
+          //   resolve: `gatsby-remark-prismjs`,
+          //   options: {
+          //   },
+          // },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -85,8 +100,8 @@ module.exports = {
         feeds: [
           {
             title: "Feed of zqc's blog",
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
+            serialize: ({ query: { site, allMdx } }: any) => {
+              return allMdx.nodes.map((node: any) => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
@@ -98,7 +113,7 @@ module.exports = {
             },
             query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   sort: {frontmatter: {date: DESC}},
                 ) {
                   nodes {
@@ -139,3 +154,5 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
 }
+
+export default config

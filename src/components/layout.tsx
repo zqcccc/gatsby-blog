@@ -6,6 +6,7 @@ import Drawer from './drawer'
 import Menu from './menu'
 import { useIsUseBrowser } from '../hooks/isInBrowser'
 import { GlobalContext } from '../core/context'
+import { Helmet } from 'react-helmet'
 
 import sun from '../images/sun.png'
 import moon from '../images/moon.png'
@@ -79,17 +80,14 @@ const Layout = ({ location, title, children }) => {
             <Menu />
           </Drawer>
         )}
-        {/* <Header>
-          <meta name="theme-color" content="#ffa8c5" />
-        </Header> */}
-        {/* <Helmet
+        <Helmet
           meta={[
             {
               name: 'theme-color',
               content: theme === 'light' ? '#ffa8c5' : '#282c35',
             },
           ]}
-        /> */}
+        />
         <header className="global-header">
           {header}
           {theme !== null ? (
@@ -128,7 +126,7 @@ const Layout = ({ location, title, children }) => {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>.{` `}
-          <a href="/rss.xml">Click here</a> to see the generated RSS Feed.
+          <a href="/rss.xml">Click here to see the generated RSS Feed.</a>
         </footer>
       </div>
     </GlobalContext.Provider>
