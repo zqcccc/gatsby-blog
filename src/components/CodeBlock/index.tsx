@@ -46,43 +46,45 @@ export default props => {
   }, [])
 
   return (
-    <div className="gatsby-highlight">
+    <div className='code-block'>
       <button
         className={`gatsby-remark-prismjs-copy-button ${copied && 'copied'}`}
         onClick={copyHandle}
       >
         {copied ? 'Copied' : ' Copy '}
       </button>
-      <Highlight
-        {...defaultProps}
-        code={code}
-        language={
-          matches && matches.groups && matches.groups.lang
-            ? matches.groups.lang
-            : ''
-        }
-        theme={theme}
-        // Prism={Prism}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className}>
-            <code className={className}>
-              {tokens.map((line, i) => (
-                <div
-                  key={i}
-                  className={
-                    highLightLine[i + 1] && 'gatsby-highlight-code-line'
-                  }
-                >
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </code>
-          </pre>
-        )}
-      </Highlight>
+      <div className="gatsby-highlight">
+        <Highlight
+          {...defaultProps}
+          code={code}
+          language={
+            matches && matches.groups && matches.groups.lang
+              ? matches.groups.lang
+              : ''
+          }
+          theme={theme}
+          // Prism={Prism}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={className}>
+              <code className={className}>
+                {tokens.map((line, i) => (
+                  <div
+                    key={i}
+                    className={
+                      highLightLine[i + 1] && 'gatsby-highlight-code-line'
+                    }
+                  >
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                ))}
+              </code>
+            </pre>
+          )}
+        </Highlight>
+      </div>
     </div>
   )
 }
