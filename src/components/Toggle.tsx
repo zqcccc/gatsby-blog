@@ -33,9 +33,25 @@ export default class Toggle extends PureComponent<{
     checked: React.ReactNode
     unchecked: React.ReactNode
   }
+  disabled?: boolean
   checked: boolean
   onChange: any
+  onFocus: any
+  onBlur: any
+  className?: string
 }> {
+  input: HTMLInputElement | null | undefined
+  previouslyChecked: boolean
+  moved: any
+  startX: number | undefined | null
+  touchStarted: boolean | undefined
+  hadFocusAtTouchStart: any
+  state: {
+    checked: boolean
+    hasFocus: boolean
+  }
+  touchMoved: boolean | undefined
+
   constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
@@ -66,15 +82,15 @@ export default class Toggle extends PureComponent<{
 
   handleClick(event) {
     const checkbox = this.input
-    this.previouslyChecked = checkbox.checked
+    this.previouslyChecked = !!checkbox?.checked
     if (event.target !== checkbox && !this.moved) {
       event.preventDefault()
-      checkbox.focus()
-      checkbox.click()
+      checkbox?.focus()
+      checkbox?.click()
       return
     }
 
-    this.setState({ checked: checkbox.checked })
+    this.setState({ checked: checkbox?.checked })
   }
 
   handleTouchStart(event) {
@@ -107,7 +123,7 @@ export default class Toggle extends PureComponent<{
 
     if (this.startX != null) {
       if (this.previouslyChecked !== this.state.checked) {
-        checkbox.click()
+        checkbox?.click()
       }
 
       this.touchStarted = false
@@ -204,5 +220,12 @@ export default class Toggle extends PureComponent<{
         />
       </div>
     )
+  }
+
+  static defaultProps = {
+    icons: {
+      checked: null,
+      unchecked: null,
+    },
   }
 }
